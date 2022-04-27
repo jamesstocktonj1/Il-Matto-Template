@@ -36,10 +36,10 @@ INCLUDES = $(wildcard $(SOURCE)/*.c)
 AVRDUDE = avrdude 
 PROGRAMMER = usbasp
 
+#fuses
 LF = 0xff
 HF = 0x9c
 EF = 0xff
-
 
 
 all: $(BUILD)/$(TARGET).hex
