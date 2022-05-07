@@ -4,14 +4,12 @@
 #include "include/io.h"
 #include "include/serial.h"
 
-signed short a;
-int8_t b;
-
 
 
 int main() {
 
     init_pins();
+    init_serial();
 
 
     while(1) {
