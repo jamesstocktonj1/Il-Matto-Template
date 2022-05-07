@@ -10,6 +10,7 @@
 #	flash	- upload hex to target
 #	fuse	- set fuses of target
 #	clean	- deletes compiled files
+#	help	- displays usage message
 
 # avr constants
 MCU = atmega644p
@@ -61,7 +62,17 @@ fuse:
 
 clean:
 	rm -f $(BUILD)/$(TARGET).elf
-	rm -f $(BUILD)/$(TARGET).hex
+	rm -f $(BUILD)/$(TARGET).
+	
+help:
+	@echo Il Matto Makefile Usage
+	@echo \tall \t-\t compiles whole program
+	@echo \tdisasm \t-\t disassembles elf file
+	@echo \tsize \t-\t shows size of elf file
+	@echo \ttest \t-\t test programmer connection
+	@echo \tflash \t-\t upload hex to target
+	@echo \tfuse \t-\t set fuses of target
+	@echo \tclean \t-\t deletes compiled files
 
 
 $(BUILD)/$(TARGET).elf: $(TARGET).c $(INCLUDES)
