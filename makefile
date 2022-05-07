@@ -65,14 +65,14 @@ clean:
 	rm -f $(BUILD)/$(TARGET).
 	
 help:
-	@echo Il Matto Makefile Usage
-	@echo \tall \t-\t compiles whole program
-	@echo \tdisasm \t-\t disassembles elf file
-	@echo \tsize \t-\t shows size of elf file
-	@echo \ttest \t-\t test programmer connection
-	@echo \tflash \t-\t upload hex to target
-	@echo \tfuse \t-\t set fuses of target
-	@echo \tclean \t-\t deletes compiled files
+	@echo "Il Matto Makefile Usage"
+	@echo "	all	- compiles whole program"
+	@echo "	disasm	- disassembles elf file"
+	@echo "	size	- shows size of elf file"
+	@echo "	test	- test programmer connection"
+	@echo "	flash	- upload hex to target"
+	@echo "	fuse	- set fuses of target"
+	@echo "	clean	- deletes compiled files"
 
 
 $(BUILD)/$(TARGET).elf: $(TARGET).c $(INCLUDES)
