@@ -18,7 +18,7 @@ void init_serial() {
 	static FILE uin = FDEV_SETUP_STREAM(NULL, ugetchar0, _FDEV_SETUP_READ);
 
     stdout = &uout;
-	//stderr = &uout;
+	stderr = &uout;
 	stdin = &uin;
 }
 
