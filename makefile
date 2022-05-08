@@ -61,8 +61,8 @@ fuse:
 	$(AVRDUDE) -c $(PROGRAMMER) -p $(MCU) -U lfuse:w:$(LF):m -U hfuse:w:$(HF):m -U efuse:w:$(EF):m
 
 clean:
-	rm -f $(BUILD)/$(TARGET).elf
-	rm -f $(BUILD)/$(TARGET).
+	@rm -f $(BUILD)/$(TARGET).elf
+	@rm -f $(BUILD)/$(TARGET).hex
 	
 help:
 	@echo "Il Matto Makefile Usage"
