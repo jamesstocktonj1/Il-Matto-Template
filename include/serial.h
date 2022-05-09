@@ -5,8 +5,13 @@
 #include <avr/io.h>
 
 
+#ifndef BAUD_RATE
 #define BAUD_RATE 9600
+#endif
+
+#ifndef BAUD_RATE1
 #define BAUD_RATE1 9600
+#endif
 
 
 void init_serial(void);
