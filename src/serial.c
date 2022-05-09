@@ -42,3 +42,41 @@ int ugetchar0(FILE *stream) {
     while(!(UCSR0A & _BV(RXC0)));
 	return UDR0;
 }
+
+
+#ifdef UDR1
+void init_serial1() {
+
+    //setup baud rate
+    UBRR1H = (F_CPU/(BAUD_RATE1*16L)-1) >> 8;
+	UBRR1L = (F_CPU/(BAUD_RATE1*16L)-1);
+    
+    //enable tx and rx
+    UCSR1B = _BV(RXEN1) | _BV(TXEN1);
+
+    //receive 8-bits
+    UCSR1C = _BV(UCSZ10) | _BV(UCSZ11);
+}
+
+
+int uputchar1(char c) {
+
+    //force \r for \n
+    if(c == '\n') uputchar1('\r');
+
+    //wait for register to be cleared
+    while (!(UCSR1A & _BV(UDRE1)));
+
+    //write to buffer
+	UDR1 = c;
+	return c;
+}
+
+int ugetchar1() {
+
+    //wait for receive
+    while(!(UCSR1A & _BV(RXC1)));
+	return UDR1;
+
+}
+#endif
