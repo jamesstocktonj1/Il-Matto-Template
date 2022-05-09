@@ -3,6 +3,8 @@
 
 #include "include/io.h"
 #include "include/serial.h"
+#include "include/i2c.h"
+#include "include/spi.h"
 
 
 
