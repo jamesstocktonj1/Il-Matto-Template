@@ -15,6 +15,7 @@ int main() {
 
     while(1) {
         printf("Hello World!\n");
+        uputline1("Hello World!\n");
         
         set_led();
         _delay_ms(800);
