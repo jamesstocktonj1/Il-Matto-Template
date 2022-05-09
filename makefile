@@ -29,7 +29,9 @@ TARGET = main
 # build and source folders
 BUILD = build
 SOURCE = src
-INCLUDES = $(wildcard $(SOURCE)/*.c)
+SOURCES = $(wildcard $(SOURCE)/*.c)
+INCLUDE = include
+INCLUDES = $(wildcard $(INCLUDE)/*.h)
 #LIB = lib
 #LIBRARY = $(wildcard $(LIB)/*.c)
 
@@ -75,8 +77,8 @@ help:
 	@echo "	clean	- deletes compiled files"
 
 
-$(BUILD)/$(TARGET).elf: $(TARGET).c $(INCLUDES)
-	$(CC) -DF_CPU=$(CLK) -mmcu=$(MCU) $(CFLAGS) $(TARGET).c $(INCLUDES) -o $(BUILD)/$(TARGET).elf
+$(BUILD)/$(TARGET).elf: $(TARGET).c $(SOURCES) $(INCLUDES)
+	$(CC) -DF_CPU=$(CLK) -mmcu=$(MCU) $(CFLAGS) $(TARGET).c $(SOURCES) -o $(BUILD)/$(TARGET).elf
 
 $(BUILD)/$(TARGET).hex: $(BUILD)/$(TARGET).elf
 	$(OBJCOPY) $(BUILD)/$(TARGET).elf $(BUILD)/$(TARGET).hex -O ihex
