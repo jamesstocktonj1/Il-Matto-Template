@@ -13,13 +13,25 @@ This is a project template for the Il Matto development board. The
 ### Makefile Usage
 
 Compiles all files, viewing its size and disassemble.
-`make all` \
+```
+make all
+make size
+make disasm
+```
 
-`make size`
-`make disasm` \
+Test the programmer connection, flash program to memory and flash fuses.
+```
+make test
+make flash
+make fuse
+```
 
-`make test` \
-`make flash` \
-`make fuse` \
-`make clean` \
-`make help` 
+Removes all compiled files.
+```
+make clean
+```
+
+Provides a help dialog.
+```
+make help
+```
