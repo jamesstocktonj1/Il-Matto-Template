@@ -72,6 +72,14 @@ int uputchar1(char c) {
 	return c;
 }
 
+void uputline1(char *l) {
+
+    while(*l != '\0') {
+        uputchar1(*l);
+        l++;
+    }
+}
+
 int ugetchar1() {
 
     //wait for receive
