@@ -1,5 +1,6 @@
 # Il Matto Template
 
+This is a project template for the Il Matto development board. The 
 
 ### Project Folder Structure
     .
@@ -11,11 +12,14 @@
 
 ### Makefile Usage
 
-`make all`
-`make disasm`
+Compiles all files, viewing its size and disassemble.
+`make all` \
+
 `make size`
-`make test`
-`make flash`
-`make fuse`
-`make clean`
-`make help`
+`make disasm` \
+
+`make test` \
+`make flash` \
+`make fuse` \
+`make clean` \
+`make help` 
