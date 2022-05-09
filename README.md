@@ -4,11 +4,11 @@ This is a project template for the Il Matto development board. The
 
 ### Project Folder Structure
     .
-    |-- build           # compiled files
-    |-- include         # dependency files
-    |-- src             # source files
-    |-- <target>.c
-    └-- makefile
+    ├── build           #compiled files
+    ├── include         # dependency files
+    ├── src             # source files
+    ├── <target>.c
+    └── makefile
 
 ### Makefile Usage
 
