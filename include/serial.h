@@ -23,6 +23,7 @@ int ugetchar0(FILE *stream);
 void init_serial1(void);
 
 int uputchar1(char c);
+void uputline1(char *l);
 int ugetchar1(void);
 #endif
 
