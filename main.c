@@ -10,6 +10,7 @@ int main() {
 
     init_pins();
     init_serial();
+    init_serial1();
 
 
     while(1) {
