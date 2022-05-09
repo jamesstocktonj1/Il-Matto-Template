@@ -1,6 +1,6 @@
 # Il Matto Template
 
-This is a project template for the Il Matto development board. The 
+This is a project template for the Il Matto development board.
 
 ### Project Folder Structure
     .
