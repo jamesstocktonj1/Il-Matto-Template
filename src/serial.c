@@ -1,5 +1,8 @@
 #include "../include/serial.h"
 
+//input/output streams
+FILE serialOut0 = FDEV_SETUP_STREAM(uputchar0, NULL, _FDEV_SETUP_WRITE);
+FILE serialIn0 = FDEV_SETUP_STREAM(NULL, ugetchar0, _FDEV_SETUP_READ);
 
 void init_serial() {
 
@@ -13,13 +16,11 @@ void init_serial() {
     //receive 8-bits
     UCSR0C = _BV(UCSZ00) | _BV(UCSZ01);
 
-    //setup input and output streams
-    static FILE uout = FDEV_SETUP_STREAM(uputchar0, NULL, _FDEV_SETUP_WRITE);
-	static FILE uin = FDEV_SETUP_STREAM(NULL, ugetchar0, _FDEV_SETUP_READ);
+    PIND &= ~_BV(PD0);
 
-    stdout = &uout;
-	stderr = &uout;
-	stdin = &uin;
+    stdout = &serialOut0;
+    stderr = &serialOut0;
+    stdin = &serialIn0;
 }
 
 
@@ -45,6 +46,11 @@ int ugetchar0(FILE *stream) {
 
 
 #ifdef UDR1
+
+//input/output streams
+FILE serialOut1 = FDEV_SETUP_STREAM(uputchar1, NULL, _FDEV_SETUP_WRITE);
+FILE serialIn1 = FDEV_SETUP_STREAM(NULL, ugetchar1, _FDEV_SETUP_READ);
+
 void init_serial1() {
 
     //setup baud rate
