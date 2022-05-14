@@ -32,6 +32,7 @@ SOURCE = src
 SOURCES = $(wildcard $(SOURCE)/*.c)
 INCLUDE = include
 INCLUDES = $(wildcard $(INCLUDE)/*.h)
+OBJECTS = $(subst $(SOURCE), $(BUILD), $(SOURCES:.c=.o))
 #LIB = lib
 #LIBRARY = $(wildcard $(LIB)/*.c)
 
@@ -65,6 +66,7 @@ fuse:
 clean:
 	@rm -f $(BUILD)/$(TARGET).elf
 	@rm -f $(BUILD)/$(TARGET).hex
+	@rm -f $(OBJECTS)
 	
 help:
 	@echo "Il Matto Makefile Usage"
@@ -77,8 +79,11 @@ help:
 	@echo "	clean	- deletes compiled files"
 
 
-$(BUILD)/$(TARGET).elf: $(TARGET).c $(SOURCES) $(INCLUDES)
-	$(CC) -DF_CPU=$(CLK) -mmcu=$(MCU) $(CFLAGS) $(TARGET).c $(SOURCES) -o $(BUILD)/$(TARGET).elf
+$(BUILD)/%.o: $(SOURCE)/%.c
+	$(CC) -DF_CPU=$(CLK) -mmcu=$(MCU) $(CFLAGS) -c $< -o $@
+
+$(BUILD)/$(TARGET).elf: $(TARGET).c $(OBJECTS)
+	$(CC) -DF_CPU=$(CLK) -mmcu=$(MCU) $(CFLAGS) $(TARGET).c $(OBJECTS) -o $(BUILD)/$(TARGET).elf
 
 $(BUILD)/$(TARGET).hex: $(BUILD)/$(TARGET).elf
 	$(OBJCOPY) $(BUILD)/$(TARGET).elf $(BUILD)/$(TARGET).hex -O ihex
